@@ -6,9 +6,9 @@ app = Flask(__name__)
 # Carga el modelo
 model = pickle.load(open('savedmodel.sav', 'rb'))
 
-@app.route('/')
+@app.route('/', methods=['GET'])
 def home():
-    return render_template('index.html', result=None)
+    return render_template('index.html', result='')
 
 @app.route('/predict', methods=['POST'])
 def predict():
